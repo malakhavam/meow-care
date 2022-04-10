@@ -13,7 +13,7 @@ const Header = () => {
     <header className="bg-secondary mb-4 py-2 flex-row align-center">
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         <Link to="/">
-          <h1>Deep Thoughts</h1>
+          <h1>Meow Care</h1>
         </Link>
 
         <nav className="text-center">
@@ -26,8 +26,10 @@ const Header = () => {
             </>
           ) : (
             <>
-              <Link to="/login">Login</Link>
-              <Link to="/signup">Signup</Link>
+              <Link to="/loginowner">Owner Login</Link>
+              <Link to="/loginsitter">Sitter Login</Link>
+              <Link to="/signupowner">Owner Signup</Link>
+              <Link to="/signupsitter">Sitter Signup</Link>
             </>
           )}
         </nav>

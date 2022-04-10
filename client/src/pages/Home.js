@@ -1,114 +1,50 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import ThoughtList from '../components/ThoughtList';
+import ThoughtForm from '../components/ThoughtForm';
+import FriendList from '../components/FriendList';
 
-import '../css/Home.css';
-import WalkerLoginForm from '../components/WalkerLoginForm';
-import WalkerSignupForm from '../components/WalkerSignupForm';
-import OwnerLoginForm from '../components/OwnerLoginForm';
-import OwnerSignupForm from '../components/OwnerSignupForm';
+import Auth from '../utils/auth';
+import { useQuery } from '@apollo/client';
+import { QUERY_THOUGHTS, QUERY_ME_BASIC } from '../utils/queries';
 
+const Home = () => {
+  document.body.classList.add('home-back');
+  const { loading, data } = useQuery(QUERY_THOUGHTS);
+  const { data: userData } = useQuery(QUERY_ME_BASIC);
+  const thoughts = data?.thoughts || [];
 
+  const loggedIn = Auth.loggedIn();
 
-function Home() {
-
-    document.body.classList.add('home-back');
-
-    const [links] = useState([
-        {
-            name: 'OWNER',
-            action: 'owner'
-        },
-        {
-            name: 'WALKER',
-            action: 'walker'
-        },
-    ])
-
-    const [formLinks] = useState([
-        {
-            name: 'LOGIN',
-            id: 'active-title',
-            hover: 'login-hover',
-            userType: 'OWNER'
-        },
-        {
-            name: 'SIGNUP',
-            id: 'active-title',
-            hover: 'login-hover',
-            userType: 'OWNER'
-        }
-    ])
-
-    const [currentLink, setCurrentLink] = useState(links[0]);
-
-    const [currentFormLink, setFormCurrentLink] = useState(formLinks[0])
-
-    return (
-            <>
-            <div className="home-new">
-            <div className="center-page-vh">
-                <img src={Logo} alt="logo" className="home-logo"/>
-
-                <h1 className="home-font-small">
-                    WHERE YOUR FURRY ROYALTY GET A PEFECT TEMPORARY SERVANT
-                </h1>
-
-                    <OwnerWalkerForm 
-                        links={links}
-                        currentLink={currentLink}
-                        setCurrentLink={setCurrentLink}
-                    />
-                        
-                            <div className={`form-title ${currentLink.action}`}>
-                                <h3>{currentLink.name} {currentFormLink.name}</h3>
-                            </div>
-                    {currentLink.name === 'WALKER' &&  (
-          
-                        <>   
-                            {currentFormLink.name === 'LOGIN' && (
-                                <>
-                                    <WalkerLoginForm 
-                                        formLinks={formLinks}
-                                        setFormCurrentLink={setFormCurrentLink}
-                                    />
-                                </>
-                            )}
-                            {currentFormLink.name === 'SIGNUP' && (
-                                <>
-                                    <WalkerSignupForm 
-                                        formLinks={formLinks}
-                                        setFormCurrentLink={setFormCurrentLink}
-                                    />
-                                </>
-                            )}
-                        </>
-                    )}
-                    {currentLink.name === 'OWNER' && (
-                        <>
-             
-                        {currentFormLink.name === 'LOGIN' && (
-                            <>
-                                <OwnerLoginForm 
-                                    formLinks={formLinks}
-                                    setFormCurrentLink={setFormCurrentLink}
-                                />
-                            </>
-                        )}
-                        {currentFormLink.name === 'SIGNUP' && (
-                            <>
-                                <OwnerSignupForm 
-                                    formLinks={formLinks}
-                                    setFormCurrentLink={setFormCurrentLink}
-                                />
-                            </>
-                        )}
-                        </>
-                    )}
-                    <Link to="/about" className="more-link">Learn More</Link>
-            </div>
-            </div>
-            </>
-    )
-}
+  return (
+    <main>
+      <div className="flex-row justify-space-between">
+        {loggedIn && (
+          <div className="col-12 mb-3">
+            <ThoughtForm />
+          </div>
+        )}
+        <div className={`col-12 mb-3 ${loggedIn && 'col-lg-8'}`}>
+          {loading ? (
+            <div>Loading...</div>
+          ) : (
+            <ThoughtList
+              thoughts={thoughts}
+              title="Some Feed for Thought(s)..."
+            />
+          )}
+        </div>
+        {loggedIn && userData ? (
+          <div className="col-12 col-lg-3 mb-3">
+            <FriendList
+              username={userData.me.username}
+              friendCount={userData.me.friendCount}
+              friends={userData.me.friends}
+            />
+          </div>
+        ) : null}
+      </div>
+    </main>
+  );
+};
 
 export default Home;

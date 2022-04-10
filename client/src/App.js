@@ -12,11 +12,13 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 
 import Home from './pages/Home';
-import Login from './pages/Login';
+import LoginOwner from './pages/LoginOwner';
+import LoginSitter from './pages/LoginSitter';
 import NoMatch from './pages/NoMatch';
 import SingleThought from './pages/SingleThought';
 import Profile from './pages/Profile';
-import Signup from './pages/Signup';
+import SignupOwner from './pages/SignupOwner';
+import SignupSitter from './pages/SignupSitter';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -46,8 +48,10 @@ function App() {
           <div className="container">
             <Switch>
               <Route exact path="/" component={Home} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/signup" component={Signup} />
+              <Route exact path="/loginowner" component={LoginOwner} />
+              <Route exact path="/loginsitter" component={LoginSitter} />
+              <Route exact path="/signupowner" component={SignupOwner} />
+              <Route exact path="/signupsitter" component={SignupSitter} />
               <Route exact path="/profile/:username?" component={Profile} />
               <Route exact path="/thought/:id" component={SingleThought} />
 
