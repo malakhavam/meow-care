@@ -9,6 +9,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_THOUGHT } from '../utils/queries';
 
 const SingleThought = (props) => {
+  document.body.classList.add('home-back');
   const { id: thoughtId } = useParams();
 
   const { loading, data } = useQuery(QUERY_THOUGHT, {
@@ -28,7 +29,7 @@ const SingleThought = (props) => {
           <span style={{ fontWeight: 700 }} className="text-light">
             {thought.username}
           </span>{' '}
-          thought on {thought.createdAt}
+          wtote on {thought.createdAt}
         </p>
         <div className="card-body">
           <p>{thought.thoughtText}</p>

@@ -5,6 +5,7 @@ import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 const Signup = () => {
+  document.body.classList.add('home-back');
   const [formState, setFormState] = useState({
     username: '',
     email: '',
@@ -75,6 +76,7 @@ const Signup = () => {
             <select className="form-input" id="select1">
             <option className="form-input" value="owner">Cat Owner</option>
             <option className="form-input" value="sitter">Cat Sitter</option>
+            <option className="form-input" value="candoboth">Can do both</option>
             </select>
               </p>
               <button className="btn d-block w-100" type="submit">
