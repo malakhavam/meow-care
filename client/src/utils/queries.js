@@ -7,12 +7,12 @@ export const QUERY_COMMENTS = gql`
       commentText
       createdAt
       username
-      reactionCount
-      reactions {
+      responseCount
+      responses {
         _id
         createdAt
         username
-        reactionBody
+        responseBody
       }
     }
   }
@@ -25,12 +25,12 @@ export const QUERY_COMMENT = gql`
       commentText
       createdAt
       username
-      reactionCount
-      reactions {
+      responseCount
+      responses {
         _id
         createdAt
         username
-        reactionBody
+        responseBody
       }
     }
   }
@@ -51,7 +51,7 @@ export const QUERY_USER = gql`
         _id
         commentText
         createdAt
-        reactionCount
+        responseCount
       }
     }
   }
@@ -68,11 +68,11 @@ export const QUERY_ME = gql`
         _id
         commentText
         createdAt
-        reactionCount
-        reactions {
+        responseCount
+        responses {
           _id
           createdAt
-          reactionBody
+          responseBody
           username
         }
       }

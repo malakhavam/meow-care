@@ -1,8 +1,8 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 
-import ReactionList from '../components/ReactionList';
-import ReactionForm from '../components/ReactionForm';
+import ResponseList from '../components/ResponseList';
+import ResponseForm from '../components/ResponseForm';
 
 import Auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
@@ -29,18 +29,18 @@ const SingleComment = (props) => {
           <span style={{ fontWeight: 700 }} className="text-light">
             {comment.username}
           </span>{' '}
-          wtote on {comment.createdAt}
+          wrote {comment.createdAt}
         </p>
         <div className="card-body">
           <p>{comment.commentText}</p>
         </div>
       </div>
 
-      {comment.reactionCount > 0 && (
-        <ReactionList reactions={comment.reactions} />
+      {comment.responseCount > 0 && (
+        <ResponseList responses={comment.responses} />
       )}
 
-      {Auth.loggedIn() && <ReactionForm commentId={comment._id} />}
+      {Auth.loggedIn() && <ResponseForm commentId={comment._id} />}
     </div>
   );
 };

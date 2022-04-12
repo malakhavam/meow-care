@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect, useParams } from 'react-router-dom';
 
-import CommentForm from '../components/ThoughtForm';
+import CommentForm from '../components/CommentForm';
 import CommentList from '../components/CommentList';
 import FriendList from '../components/FriendList';
 

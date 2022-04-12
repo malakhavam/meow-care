@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 
 import { useMutation } from '@apollo/client';
-import { ADD_REACTION } from '../../utils/mutations';
+import { ADD_RESPONSE } from '../../utils/mutations';
 
-const ReactionForm = ({ commentId }) => {
-  const [reactionBody, setBody] = useState('');
+const ResponseForm = ({ commentId }) => {
+  const [responseBody, setBody] = useState('');
   const [characterCount, setCharacterCount] = useState(0);
-  const [addReaction, { error }] = useMutation(ADD_REACTION);
+  const [addResponse, { error }] = useMutation(ADD_RESPONSE);
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -21,8 +21,8 @@ const ReactionForm = ({ commentId }) => {
     event.preventDefault();
 
     try {
-      await addReaction({
-        variables: { reactionBody, commentId },
+      await addResponse({
+        variables: { responseBody, commentId },
       });
 
       // clear form value
@@ -38,7 +38,7 @@ const ReactionForm = ({ commentId }) => {
       <p
         className={`m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}
       >
-        Leave your information here, if you want be a Sitter for this furry Precious: {characterCount}/280
+        Leave your comment here: {characterCount}/280
         {error && <span className="ml-2">Something went wrong...</span>}
       </p>
       <form
@@ -47,13 +47,13 @@ const ReactionForm = ({ commentId }) => {
       >
         <textarea
           placeholder="Your information or comment here"
-          value={reactionBody}
+          value={responseBody}
           className="form-input col-12 col-md-9"
           onChange={handleChange}
         ></textarea>
 
         <button className="btn col-12 col-md-3" type="submit">
-          Submit
+          Meow
         </button>
       </form>
 
@@ -62,4 +62,4 @@ const ReactionForm = ({ commentId }) => {
   );
 };
 
-export default ReactionForm;
+export default ResponseForm;

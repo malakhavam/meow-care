@@ -69,13 +69,13 @@ const CommentForm = () => {
         onSubmit={handleFormSubmit}
       >
         <textarea
-          placeholder="Few words about yourself and your cat and why are you looking for the Sitter"
+          placeholder="Few words about yourself, your cat and why are you looking for the Sitter"
           value={commentText}
           className="form-input col-12 col-md-9"
           onChange={handleChange}
         ></textarea>
         <button className="btn col-12 col-md-3" type="submit">
-          Submit
+          Meow
         </button>
       </form>
     </div>

@@ -31,22 +31,22 @@ export const ADD_COMMENT = gql`
       commentText
       createdAt
       username
-      reactionCount
-      reactions {
+      responseCount
+      responses {
         _id
       }
     }
   }
 `;
 
-export const ADD_REACTION = gql`
-  mutation addReaction($commentId: ID!, $reactionBody: String!) {
-    addReaction(commentId: $commentId, reactionBody: $reactionBody) {
+export const ADD_RESPONSE = gql`
+  mutation addResponse($commentId: ID!, $responseBody: String!) {
+    addResponse(commentId: $commentId, responseBody: $responseBody) {
       _id
-      reactionCount
-      reactions {
+      responseCount
+      responses {
         _id
-        reactionBody
+        responseBody
         createdAt
         username
       }

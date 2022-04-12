@@ -32,7 +32,7 @@ body {
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Rokkitt', serif;
   font-weight: 400;
   line-height: 1.5;
   font-size: 20px;
@@ -172,18 +172,28 @@ nav a:hover {
   display: block;
 }
 
-.form-label {
-  font-size: 1.2rem;
-  margin: 0.625rem 0 0.25rem;
+.form-lable {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  margin-bottom: 0;
+  width: 300px;
+
 }
 
 .form-input {
-  width: 100%;
-  padding: 0.75rem;
-  margin: 0.2rem 0;
-  font-size: 1.2rem;
-  border: 2px solid var(--dark);
-  border-radius: var(--border-radius);
+
+  font-weight: 700;
+  font-size: 1.5rem;
+  padding: .25rem 1rem;
+  margin: .5rem 1rem;
+  border-radius: 15px;
+  border: 5px solid var(--secondary);
+  background-color: var(--secondary);
+  color: var(--tertiary);
+  cursor: pointer;
 }
 
 [type='radio']:checked,
@@ -239,6 +249,7 @@ nav a:hover {
   -webkit-transform: scale(1);
   transform: scale(1);
 }
+
 
 /* LAYOUT */
 .container {

@@ -20,14 +20,14 @@ const CommentList = ({ comments, title }) => {
               >
                 {comment.username}
               </Link>{' '}
-              wtote on {comment.createdAt}
+              wrote {comment.createdAt}
             </p>
             <div className="card-body">
               <Link to={`/comment/${comment._id}`}>
                 <p>{comment.commentText}</p>
                 <p className="mb-0">
-                  Comments: {comment.reactionCount} || Click to{' '}
-                  {comment.reactionCount ? 'see' : 'start'} comment
+                  Responses: {comment.responseCount} || Click to{' '}
+                  {comment.responseCount ? 'see' : 'start'} response
                 </p>
               </Link>
             </div>
