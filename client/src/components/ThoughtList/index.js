@@ -3,9 +3,7 @@ import { Link } from 'react-router-dom';
 
 const ThoughtList = ({ thoughts, title }) => {
   if (!thoughts.length) {
-    return <h5>WELCOME TO THE MEOW CARE, WHERE YOUR FURRY ROYALTY GET A PERFECT TEMPORARY SERVANT
-      
-    </h5>;
+    return <h5>WELCOME TO THE MEOW CARE, WHERE YOUR FURRY ROYALTY GETS A PERFECT TEMPORARY SERVANT</h5>;
   }
 
   return (

@@ -26,10 +26,8 @@ const Header = () => {
             </>
           ) : (
             <>
-              <Link to="/loginowner">Owner Login</Link>
-              <Link to="/loginsitter">Sitter Login</Link>
-              <Link to="/signupowner">Owner Signup</Link>
-              <Link to="/signupsitter">Sitter Signup</Link>
+              <Link to="/login">Login</Link>
+              <Link to="/signup">Signup</Link>
             </>
           )}
         </nav>
