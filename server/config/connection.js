@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 mongoose.connect(
-  process.env.MONGODB_URI || 'mongodb://localhost:27017/deep-comments',
+  process.env.MONGODB_URI || 'mongodb://localhost:27017/meow-care',
   {
     useNewUrlParser: true, 
     useUnifiedTopology: true,
