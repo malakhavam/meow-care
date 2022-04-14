@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const CommentList = ({ comments, title }) => {
   if (!comments.length) {
-    return <h5>WELCOME TO THE MEOW CARE, WHERE YOUR FURRY ROYALTY GETS A PERFECT TEMPORARY SERVANT</h5>;
+    return <h5>WELCOME TO THE MEOW CARE, WHERE YOUR FURRY ROYALTY GETS A PURRRFECT TEMPORARY SERVANT</h5>;
   }
 
   return (
