@@ -4,8 +4,7 @@
    
 ## Description 
    
-    Meow Care is an easy platform that allows cat owners to connect with each other​.
-    The idea of this project is to help cat owners to find a cat sitter, when needed or just a friend who is also cat lover. Application allows to create personal profile add friends and write public messages, so other users can see it and respond.​
+ Meow Care is an easy platform that allows cat owners to connect with each other​.The idea of this project is to help cat owners to find a cat sitter, when needed or just a friend who is also cat lover. Application allows to create personal profile add friends and write public messages, so other users can see it and respond.​
    
 ## Table of Contents  
    * [Installation](#installation)
