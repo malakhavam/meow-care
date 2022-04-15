@@ -10,7 +10,7 @@ const Signup = () => {
     username: '',
     email: '',
     password: '',
-    option: ['Cat Owner']
+    
   });
   const [addUser, { error }] = useMutation(ADD_USER);
 
@@ -77,7 +77,7 @@ const Signup = () => {
                   />
                   
                   <p> Select your profile type: 
-                  <select value={formState.option} className="form-input" id="dropdown" onChange={handleChange}>
+                  <select className="form-input" id="dropdown">
                   <option className="form-input" option="Cat Owner">Cat Owner</option>
                   <option className="form-input" option="Cat Sitter">Cat Sitter</option>
                   <option className="form-input" option="Can do both">Can do both</option>
