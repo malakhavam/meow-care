@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node server.js",
     "watch": "nodemon",
-    "seed": "node seeders/seeds.js"
+    "seed": "node seeders/seeds.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "keywords": [],
   "author": "",
@@ -18,7 +20,9 @@
     "faker": "^4.1.0",
     "graphql": "^15.8.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.0.13"
+    "modules": "^0.4.0",
+    "mongoose": "^6.0.13",
+    "node": "^20.6.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.3"
