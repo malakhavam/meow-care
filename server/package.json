@@ -7,7 +7,7 @@
     "start": "node server.js",
     "watch": "nodemon",
     "seed": "node seeders/seeds.js",
-    "build": "react-scripts build",
+    "build": "cd client && npm run build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
